@@ -1,6 +1,6 @@
-#ToDo fix ImportError of circular import
-from models.productCarts import CartsModel, db
-from flask_restful import Resource, reqparse, marshal_with, fields, abort
+from app.models.productCarts import CartsModel
+from app import db
+from flask_restful import Resource, reqparse, marshal_with
 from datetime import datetime as dt
 
 cart_args = reqparse.RequestParser()
