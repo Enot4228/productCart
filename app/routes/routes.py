@@ -1,5 +1,3 @@
-from email.policy import default
-
 from app.models.productCarts import CartsModel
 from app import db
 from flask_restful import Resource, reqparse, marshal_with, fields, abort
