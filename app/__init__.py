@@ -11,7 +11,7 @@ def create_app():
     api = Api(app)
     db.init_app(app)
 
-    from .routes.routes import Cart, Carts
+    from .routes.cart_routes import Cart, Carts
     api.add_resource(Cart, '/api/cart/<int:id>')
     api.add_resource(Carts, '/api/carts')
 
