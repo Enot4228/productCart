@@ -1,6 +1,4 @@
-from app import create_app
-
-app, db = create_app()
+from app import app, db
 
 
 @app.route('/', methods=['GET'])
