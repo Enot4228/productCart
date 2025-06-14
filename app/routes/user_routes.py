@@ -1,5 +1,5 @@
 from app.models.users import UsersModel, create_user
-from app import db, bcrypt, app
+from app import db, app
 from flask_restful import Resource, reqparse, marshal_with, abort, fields
 from flask import jsonify, request, make_response
 from jwt import decode
