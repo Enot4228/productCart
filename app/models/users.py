@@ -1,4 +1,4 @@
-from app import db
+from app import db, bcrypt
 
 class UsersModel(db.Model):
     __tablename__ = 'users'
@@ -9,3 +9,11 @@ class UsersModel(db.Model):
     lastName = db.Column(db.String, nullable=False)
     hashedPassword = db.Column(db.String, nullable=False)
     role = db.Column(db.String, nullable=False)
+
+def create_user(args):
+    return UsersModel(username=args['username'],
+                      email=args['email'],
+                      firstName=args['firstName'],
+                      lastName=args['lastName'],
+                      hashedPassword=bcrypt.generate_password_hash(args['password']).decode('utf-8'),
+                      role=args['role'])

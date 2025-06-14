@@ -22,14 +22,14 @@ cartFields = {
 
 class Cart(Resource):
     @marshal_with(cartFields)
-    def get(self, id):
+    def get(self, id): # ToDo add admin token auth
         cart = CartsModel.query.filter_by(id=id).first()
         if cart is None:
             abort(404, message="Cart not found")
         return cart
 
     @marshal_with(cartFields)
-    def delete(self, id):
+    def delete(self, id): # ToDo add admin token auth
         cart = CartsModel.query.filter_by(id=id).first()
         if cart is None:
             abort(404, message="Cart not found")
@@ -39,7 +39,7 @@ class Cart(Resource):
         return carts
 
     @marshal_with(cartFields)
-    def put(self, id):
+    def put(self, id): # ToDo make update by token without cart id
         args = cart_args_put.parse_args()
         cart = CartsModel.query.filter_by(id=id).first()
         if cart is None:
@@ -58,12 +58,12 @@ class Cart(Resource):
 
 class Carts(Resource):
     @marshal_with(cartFields)
-    def get(self):
+    def get(self): # ToDo add admin token auth
         carts = CartsModel.query.all()
         return carts
 
     @marshal_with(cartFields)
-    def post(self):
+    def post(self): # Todo add user token create cart
         args = cart_args_post.parse_args()
         cart = CartsModel(productList="", lastUpdate=dt.now(), createTime=dt.now(), owner=args['owner'])
         db.session.add(cart)

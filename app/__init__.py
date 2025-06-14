@@ -19,9 +19,9 @@ from .routes.cart_routes import Cart, Carts
 from .routes.user_routes import Users, User
 from .routes.login_routes import Login
 from .routes.register_routes import Register
-api.add_resource(Cart, '/api/cart/<int:id>')
+api.add_resource(Cart, '/api/cart/<int:id>') # Admin only
 api.add_resource(Carts, '/api/carts')
-api.add_resource(Users, '/api/users') #Admin only
-api.add_resource(User, '/api/users/<int:id>') #Admin only
+api.add_resource(Users, '/api/users') # Admin only
+api.add_resource(User, '/api/users/<int:id>') # Admin only
 api.add_resource(Login, '/api/login')
 api.add_resource(Register, '/api/register')
