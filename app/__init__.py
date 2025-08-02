@@ -8,7 +8,7 @@ bcrypt = Bcrypt()
 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql://postgres:postgres@localhost:5432/postgres'
+app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql://postgres:postgres@postgres:5432/postgres'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = '(w*+t8$2=(ev&h5clwcz8-)a1%8!1hucd_d#qw0yu%h4r6jq$='
 api = Api(app)

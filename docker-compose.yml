@@ -16,3 +16,13 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+
+  product_cart:
+    image: enot42/product-cart
+    container_name: product-cart
+    hostname: product-cart
+    depends_on:
+      postgres:
+        condition: service_healthy
+    ports:
+      - '6080:6080'
