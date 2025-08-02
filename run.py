@@ -1,6 +1,4 @@
-from app import create_app
-
-app, db = create_app()
+from app import app, db
 
 
 @app.route('/', methods=['GET'])
@@ -8,4 +6,4 @@ def home():
     return "<h1>Flask Product Cart API</h1>"
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=6080)
